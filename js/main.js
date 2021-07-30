@@ -1,13 +1,15 @@
 // Результат: число с плавающей точкой из диапазона "от...до" с указанным "количеством знаков после запятой"
 //[https://developer.mozilla.org/ru/docs/orphaned/Web/JavaScript/Reference/Global_Objects/Math/random]
-// eslint-disable-next-line no-unused-vars
-function getRandomIntInclusive(min, max, number) {
+
+function randomfract(min, max, number) {
   if (min > max) {
-    // eslint-disable-next-line id-length
-    const i = max;
-    max = min;
-    min = i;
+    return Error();
   }
-  if (min + max >= 0) {return +(Math.random() * (max - min + 1) + min).toFixed(number);}
-  return 0;
+  return +(Math.random() * (max - min + 1) + min).toFixed(number);
+}
+//Получение случайного целого числа в заданном интервале, включительно
+function randomint(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
